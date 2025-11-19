@@ -1,0 +1,23 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# Temp files
+*.log
+*.tmp
+*~
+
+# Dependencies
+node_modules/
+vendor/
+
+# Backup files
+*.rar
+*.zip
+*.bak
