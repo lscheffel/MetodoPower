@@ -297,7 +297,7 @@
       <div class="hero-badges mt-8 flex gap-4 justify-center flex-wrap">
         <a href="https://instagram.com/lucianoscheffelcorretor" target="_blank" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">📸 @lucianoscheffelcorretor</a>
         <span class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm">👨‍💼 Criado por Luciano Scheffel</span>
-        <span class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm">🏆 Método Exclusivo</span>
+        <a href="shortcuts.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">⚡ Atalhos Rápidos</a>
       </div>
     </div>
   </header>
@@ -367,14 +367,13 @@
       <!-- Tags de Tipo -->
       <div>
         <h3 class="text-2xl font-bold gold-gradient mb-6 text-center">Tags de Tipo</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 p-8">
-          <div class="modern-card text-center"><div class="emoji-glow text-4xl mb-2">#V</div><div class="text-xs font-semibold">Venda</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-3xl mb-2">#LT</div><div class="text-xs font-semibold">Locação<br>Temporada</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-3xl mb-2">#LA</div><div class="text-xs font-semibold">Locação<br>Anual</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-4xl mb-2">#C</div><div class="text-xs font-semibold">Compra</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-4xl mb-2">#R</div><div class="text-xs font-semibold">Reforma</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-3xl mb-2">#VI</div><div class="text-xs font-semibold">Vistoria</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-4xl mb-2">#A</div><div class="text-xs font-semibold">Avaliação</div></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 p-8">
+          <div class="modern-card text-center copyable-card" data-copy="#C"><div class="emoji-glow text-4xl mb-2">#C</div><div class="text-xs font-semibold">Compra</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#V"><div class="emoji-glow text-4xl mb-2">#V</div><div class="text-xs font-semibold">Venda</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#LT"><div class="emoji-glow text-3xl mb-2">#LT</div><div class="text-xs font-semibold">Locação<br>Temporada</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#LA"><div class="emoji-glow text-3xl mb-2">#LA</div><div class="text-xs font-semibold">Locação<br>Anual</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#VI"><div class="emoji-glow text-3xl mb-2">#VI</div><div class="text-xs font-semibold">Vistoria</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#R"><div class="emoji-glow text-4xl mb-2">#R</div><div class="text-xs font-semibold">Reforma</div></div>
         </div>
       </div>
 
@@ -382,10 +381,10 @@
       <div>
         <h3 class="text-2xl font-bold gold-gradient mb-6 text-center">Prioridade</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
-          <div class="modern-card text-center"><div class="emoji-glow text-6xl mb-2">1️⃣</div><div class="text-lg font-bold">Alta</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-6xl mb-2">2️⃣</div><div class="text-lg font-bold">Média</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-6xl mb-2">3️⃣</div><div class="text-lg font-bold">Baixa</div></div>
-          <div class="modern-card text-center"><div class="emoji-glow text-6xl mb-2 text-red-400">🚨</div><div class="text-lg font-bold">Urgente</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="🚨"><div class="emoji-glow text-6xl mb-2 text-red-400">🚨</div><div class="text-lg font-bold">Urgente</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="1️⃣"><div class="emoji-glow text-6xl mb-2">1️⃣</div><div class="text-lg font-bold">Alta</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="2️⃣"><div class="emoji-glow text-6xl mb-2">2️⃣</div><div class="text-lg font-bold">Média</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="3️⃣"><div class="emoji-glow text-6xl mb-2">3️⃣</div><div class="text-lg font-bold">Baixa</div></div>
         </div>
       </div>
 
@@ -415,17 +414,17 @@
           <tr class="copyable-row" data-copy="👤" style="cursor: pointer;"><td class="text-4xl">👤</td><td class="font-semibold">Prospect</td><td class="font-mono text-yellow-300">;;pros</td><td class="font-mono text-yellow-300">.pros</td><td><button class="modern-btn copy-btn" data-text=";;pros ou .pros → 👤" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="🤝" style="cursor: pointer;"><td class="text-4xl">🤝</td><td class="font-semibold">Parceiro</td><td class="font-mono text-yellow-300">;;parc</td><td class="font-mono text-yellow-300">.parc</td><td><button class="modern-btn copy-btn" data-text=";;parc ou .parc → 🤝" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="⚠️" style="cursor: pointer;"><td class="text-4xl">⚠️</td><td class="font-semibold">Problemático</td><td class="font-mono text-yellow-300">;;alert</td><td class="font-mono text-yellow-300">.alert</td><td><button class="modern-btn copy-btn" data-text=";;alert ou .alert → ⚠️" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#C" style="cursor: pointer;"><td class="text-4xl">#C</td><td class="font-semibold">Compra</td><td class="font-mono text-yellow-300">;;c</td><td class="font-mono text-yellow-300">..c</td><td><button class="modern-btn copy-btn" data-text=";;c ou ..c → #C" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="#V" style="cursor: pointer;"><td class="text-4xl">#V</td><td class="font-semibold">Venda</td><td class="font-mono text-yellow-300">;;v</td><td class="font-mono text-yellow-300">..v</td><td><button class="modern-btn copy-btn" data-text=";;v ou ..v → #V" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="#LT" style="cursor: pointer;"><td class="text-4xl">#LT</td><td class="font-semibold">Locação Temporada</td><td class="font-mono text-yellow-300">;;lt</td><td class="font-mono text-yellow-300">..lt</td><td><button class="modern-btn copy-btn" data-text=";;lt ou ..lt → #LT" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="#LA" style="cursor: pointer;"><td class="text-4xl">#LA</td><td class="font-semibold">Locação Anual</td><td class="font-mono text-yellow-300">;;la</td><td class="font-mono text-yellow-300">..la</td><td><button class="modern-btn copy-btn" data-text=";;la ou ..la → #LA" onclick="event.stopPropagation();">Copiar</button></td></tr>
-          <tr class="copyable-row" data-copy="#C" style="cursor: pointer;"><td class="text-4xl">#C</td><td class="font-semibold">Compra</td><td class="font-mono text-yellow-300">;;c</td><td class="font-mono text-yellow-300">..c</td><td><button class="modern-btn copy-btn" data-text=";;c ou ..c → #C" onclick="event.stopPropagation();">Copiar</button></td></tr>
-          <tr class="copyable-row" data-copy="#R" style="cursor: pointer;"><td class="text-4xl">#R</td><td class="font-semibold">Reforma</td><td class="font-mono text-yellow-300">;;r</td><td class="font-mono text-yellow-300">..r</td><td><button class="modern-btn copy-btn" data-text=";;r ou ..r → #R" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="#VI" style="cursor: pointer;"><td class="text-4xl">#VI</td><td class="font-semibold">Vistoria</td><td class="font-mono text-yellow-300">;;vi</td><td class="font-mono text-yellow-300">..vi</td><td><button class="modern-btn copy-btn" data-text=";;vi ou ..vi → #VI" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#R" style="cursor: pointer;"><td class="text-4xl">#R</td><td class="font-semibold">Reforma</td><td class="font-mono text-yellow-300">;;r</td><td class="font-mono text-yellow-300">..r</td><td><button class="modern-btn copy-btn" data-text=";;r ou ..r → #R" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="#A" style="cursor: pointer;"><td class="text-4xl">#A</td><td class="font-semibold">Avaliação</td><td class="font-mono text-yellow-300">;;a</td><td class="font-mono text-yellow-300">..a</td><td><button class="modern-btn copy-btn" data-text=";;a ou ..a → #A" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="🚨" style="cursor: pointer;"><td class="text-4xl">🚨</td><td class="font-semibold">Urgente</td><td class="font-mono text-yellow-300">;;u</td><td class="font-mono text-yellow-300">.u</td><td><button class="modern-btn copy-btn" data-text=";;u ou .u → 🚨" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="1️⃣" style="cursor: pointer;"><td class="text-4xl">1️⃣</td><td class="font-semibold">Prioridade Alta</td><td class="font-mono text-yellow-300">;;1</td><td class="font-mono text-yellow-300">.1</td><td><button class="modern-btn copy-btn" data-text=";;1 ou .1 → 1️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="2️⃣" style="cursor: pointer;"><td class="text-4xl">2️⃣</td><td class="font-semibold">Prioridade Média</td><td class="font-mono text-yellow-300">;;2</td><td class="font-mono text-yellow-300">.2</td><td><button class="modern-btn copy-btn" data-text=";;2 ou .2 → 2️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
           <tr class="copyable-row" data-copy="3️⃣" style="cursor: pointer;"><td class="text-4xl">3️⃣</td><td class="font-semibold">Prioridade Baixa</td><td class="font-mono text-yellow-300">;;3</td><td class="font-mono text-yellow-300">.3</td><td><button class="modern-btn copy-btn" data-text=";;3 ou .3 → 3️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
-          <tr class="copyable-row" data-copy="🚨" style="cursor: pointer;"><td class="text-4xl">🚨</td><td class="font-semibold">Urgente</td><td class="font-mono text-yellow-300">;;u</td><td class="font-mono text-yellow-300">.u</td><td><button class="modern-btn copy-btn" data-text=";;u ou .u → 🚨" onclick="event.stopPropagation();">Copiar</button></td></tr>
         </tbody>
       </table>
     </div>
