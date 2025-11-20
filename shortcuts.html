@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atalhos Rápidos - MÉTODO POWER</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+      min-height: 100vh;
+    }
+    
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Gradiente dourado premium */
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #f4e5a1 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Header com blur dinâmico */
+    .hero-header {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 10, 46, 0.3) 100%);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+    
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .hero-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+      transition: left 0.8s;
+    }
+    
+    .hero-header:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(40px);
+    }
+    
+    .hero-header:hover::after {
+      left: 100%;
+    }
+    
+    .hero-header:hover .hero-title {
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    }
+    
+    .hero-title {
+      transition: text-shadow 0.6s;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+    
+    /* Tabela moderna */
+    .modern-table {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      width: auto;
+      min-width: fit-content;
+    }
+    
+    .modern-table th {
+      background: rgba(212, 175, 55, 0.1);
+      padding: 1rem 0.5rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    
+    .modern-table td {
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+    
+    .modern-table tr:hover {
+      background: rgba(212, 175, 55, 0.05);
+    }
+    
+    /* Botão moderno */
+    .modern-btn {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 0.5rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .modern-btn:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.2) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    /* Section moderna */
+    .modern-section {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 32px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="text-white p-4 md:p-8 pt-60 md:pt-64">
+
+<div class="max-w-7xl mx-auto">
+
+  <!-- HEADER HERO -->
+  <header class="hero-header p-2 md:p-4 text-center fixed top-0 left-0 right-0 z-50 mx-4 md:mx-8 mt-2 rounded-3xl">
+    <div class="relative z-10">
+      <h1 class="hero-title text-6xl md:text-8xl font-black mb-2 gold-gradient tracking-tight">ATALHOS RÁPIDOS</h1>
+      <p class="text-xl md:text-2xl font-light opacity-80">Copie rapidamente os atalhos para seu CRM</p>
+      <div class="hero-badges mt-4 flex gap-4 justify-center flex-wrap">
+        <a href="ticoteco.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">🏠 Início</a>
+        <a href="shortcuts.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">⚡ Atalhos Rápidos</a>
+        <a href="shortcutconf.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">⚙️ Configurar</a>
+        <a href="about.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">ℹ️ sobre</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ATALHOS -->
+  <section class="modern-section max-w-2xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black mb-8 text-center gold-gradient">ATALHOS DE TECLADO</h2>
+    <div class="flex justify-center">
+      <div class="overflow-hidden">
+        <table class="modern-table">
+        <thead>
+          <tr class="text-left">
+            <th>Emoji</th>
+            <th>Função</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="copyable-row" data-copy="★" style="cursor: pointer;"><td class="text-xl">★</td><td class="text-sm font-medium">Cliente VIP</td></tr>
+          <tr class="copyable-row" data-copy="🔥" style="cursor: pointer;"><td class="text-xl">🔥</td><td class="text-sm font-medium">Lead Quente</td></tr>
+          <tr class="copyable-row" data-copy="🌡️" style="cursor: pointer;"><td class="text-xl">🌡️</td><td class="text-sm font-medium">Lead Morno</td></tr>
+          <tr class="copyable-row" data-copy="💤" style="cursor: pointer;"><td class="text-xl">💤</td><td class="text-sm font-medium">Lead Frio</td></tr>
+          <tr class="copyable-row" data-copy="✅" style="cursor: pointer;"><td class="text-xl">✅</td><td class="text-sm font-medium">Fechado</td></tr>
+          <tr class="copyable-row" data-copy="👤" style="cursor: pointer;"><td class="text-xl">👤</td><td class="text-sm font-medium">Prospect</td></tr>
+          <tr class="copyable-row" data-copy="🤝" style="cursor: pointer;"><td class="text-xl">🤝</td><td class="text-sm font-medium">Parceiro</td></tr>
+          <tr class="copyable-row" data-copy="⚠️" style="cursor: pointer;"><td class="text-xl">⚠️</td><td class="text-sm font-medium">Problemático</td></tr>
+          <tr class="copyable-row" data-copy="#C" style="cursor: pointer;"><td class="text-xl">#C</td><td class="text-sm font-medium">Compra</td></tr>
+          <tr class="copyable-row" data-copy="#V" style="cursor: pointer;"><td class="text-xl">#V</td><td class="text-sm font-medium">Venda</td></tr>
+          <tr class="copyable-row" data-copy="#LT" style="cursor: pointer;"><td class="text-xl">#LT</td><td class="text-sm font-medium">Locação Temporada</td></tr>
+          <tr class="copyable-row" data-copy="#LA" style="cursor: pointer;"><td class="text-xl">#LA</td><td class="text-sm font-medium">Locação Anual</td></tr>
+          <tr class="copyable-row" data-copy="#VI" style="cursor: pointer;"><td class="text-xl">#VI</td><td class="text-sm font-medium">Vistoria</td></tr>
+          <tr class="copyable-row" data-copy="#R" style="cursor: pointer;"><td class="text-xl">#R</td><td class="text-sm font-medium">Reforma</td></tr>
+          <tr class="copyable-row" data-copy="#A" style="cursor: pointer;"><td class="text-xl">#A</td><td class="text-sm font-medium">Avaliação</td></tr>
+          <tr class="copyable-row" data-copy="🚨" style="cursor: pointer;"><td class="text-xl">🚨</td><td class="text-sm font-medium">Urgente</td></tr>
+          <tr class="copyable-row" data-copy="1️⃣" style="cursor: pointer;"><td class="text-xl">1️⃣</td><td class="text-sm font-medium">Prioridade Alta</td></tr>
+          <tr class="copyable-row" data-copy="2️⃣" style="cursor: pointer;"><td class="text-xl">2️⃣</td><td class="text-sm font-medium">Prioridade Média</td></tr>
+          <tr class="copyable-row" data-copy="3️⃣" style="cursor: pointer;"><td class="text-xl">3️⃣</td><td class="text-sm font-medium">Prioridade Baixa</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-12 opacity-60 text-sm">
+    <p>Método POWER | Luciano Scheffel, Corretor © Novembro 2025</p>
+    <p class="mt-2">Design moderno • S • Mobile-first</p>
+  </footer>
+</div>
+
+<script>
+  // Aguarda o DOM carregar
+  window.addEventListener('load', () => {
+    
+    // Função de copiar
+    function copyText(text, element) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalBg = element.style.background;
+        element.style.background = 'rgba(34, 197, 94, 0.3)';
+        element.style.transition = 'background 0.3s';
+        
+        const notification = document.createElement('div');
+        notification.textContent = `✓ ${text} copiado!`;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: rgba(34, 197, 94, 0.9);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-weight: bold;
+          z-index: 9999;
+          animation: slideIn 0.3s ease-out;
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          element.style.background = originalBg;
+          notification.style.animation = 'slideOut 0.3s ease-out';
+          setTimeout(() => notification.remove(), 300);
+        }, 2000);
+      });
+    }
+    
+    // Linhas da tabela
+    document.querySelectorAll('.copyable-row').forEach(row => {
+      row.addEventListener('click', function(e) {
+        if (!e.target.closest('.copy-btn')) {
+          copyText(this.getAttribute('data-copy'), this);
+        }
+      });
+    });
+ 
+    // Botões "Copiar" da tabela
+    document.querySelectorAll('.copy-btn').forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigator.clipboard.writeText(b.dataset.text);
+        const orig = b.textContent;
+        b.textContent = '✓ Copiado';
+        b.style.background = 'rgba(34, 197, 94, 0.2)';
+        setTimeout(() => {
+          b.textContent = orig;
+          b.style.background = '';
+        }, 2000);
+      });
+    });
+    
+    // Animações CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(400px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(400px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+</body>
+</html>

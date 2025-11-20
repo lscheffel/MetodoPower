@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MÉTODO POWER – 2026 Edition</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+      min-height: 100vh;
+    }
+    
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Gradiente dourado premium */
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #f4e5a1 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Cards modernos com hover cinematográfico */
+    .modern-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      padding: 1.5rem;
+      margin: 0.5rem;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .modern-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      border-radius: 24px;
+    }
+    
+    .modern-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+      transition: left 0.8s;
+    }
+    
+    .modern-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(20px);
+      z-index: 10;
+    }
+    
+    .modern-card:hover::before {
+      opacity: 1;
+    }
+    
+    .modern-card:hover::after {
+      left: 100%;
+    }
+    
+    .modern-card .emoji-glow {
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+      transition: filter 0.3s, transform 0.3s;
+    }
+    
+    .modern-card:hover .emoji-glow {
+      filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.6));
+      transform: scale(1.1);
+    }
+    
+    .modern-card .font-bold,
+    .modern-card .font-semibold {
+      position: relative;
+      z-index: 1;
+      transition: text-shadow 0.4s;
+    }
+    
+    .modern-card:hover .font-bold,
+    .modern-card:hover .font-semibold {
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+    
+    /* Emoji com glow effect */
+    .emoji-glow {
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+      transition: filter 0.3s;
+    }
+    
+    .modern-card:hover .emoji-glow {
+      filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.6));
+    }
+    
+    /* Header com blur dinâmico */
+    .hero-header {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 10, 46, 0.3) 100%);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+    
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .hero-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+      transition: left 0.8s;
+    }
+    
+    .hero-header:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(40px);
+    }
+    
+    .hero-header:hover::after {
+      left: 100%;
+    }
+    
+    .hero-header:hover .hero-title {
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    }
+    
+    .hero-title {
+      transition: text-shadow 0.6s;
+    }
+    
+    .hero-badges {
+      transition: transform 0.4s;
+    }
+    
+    .hero-header:hover .hero-badges {
+      transform: scale(1.05);
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+    
+    /* Collapsible moderno */
+    .collapsible {
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+    }
+    
+    .collapsible:hover {
+      color: #d4af37;
+      transform: translateX(8px);
+    }
+    
+    .collapsible::before {
+      content: "→";
+      margin-right: 1rem;
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    
+    .collapsible.open::before {
+      transform: rotate(90deg);
+    }
+    
+    .content {
+      max-height: 5000px;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      overflow: hidden;
+    }
+    
+    .content.hidden {
+      max-height: 0;
+      opacity: 0;
+      margin: 0;
+    }
+    
+    /* Tabela moderna */
+    .modern-table {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    
+    .modern-table th {
+      background: rgba(212, 175, 55, 0.1);
+      padding: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    
+    .modern-table td {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .modern-table tr:hover {
+      background: rgba(212, 175, 55, 0.05);
+    }
+    
+    /* Botão moderno */
+    .modern-btn {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 0.5rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .modern-btn:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.2) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Section moderna */
+    .modern-section {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 32px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body class="text-white p-4 md:p-8 pt-64 md:pt-60">
+
+<div class="max-w-7xl mx-auto">
+
+  <!-- HEADER HERO -->
+  <header class="hero-header p-2 md:p-4 text-center fixed top-0 left-0 right-0 z-50 mx-4 md:mx-8 mt-2 rounded-3xl">
+    <div class="relative z-10">
+      <h1 class="hero-title text-6xl md:text-8xl font-black mb-2 gold-gradient tracking-tight">MÉTODO POWER</h1>
+      <p class="text-xl md:text-2xl font-light opacity-80">CRM Definitivo para Corretores de Alto Desempenho</p>
+      <div class="hero-badges mt-4 flex gap-4 justify-center flex-wrap">
+        <a href="ticoteco.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">🏠 Início</a>
+        <a href="shortcuts.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">⚡ Atalhos Rápidos</a>
+        <a href="shortcutconf.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">⚙️ Configurar</a>
+        <a href="about.html" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">ℹ️ sobre</a>
+        <a href="https://instagram.com/lucianoscheffelcorretor" target="_blank" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">📸 @lucianoscheffelcorretor</a>
+        <a href="https://wa.me/+5551991076688" target="_blank" class="px-6 py-2 bg-white/5 backdrop-blur rounded-full text-sm hover:bg-white/10 transition-all">📞 Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. FORMATO DO NOME -->
+  <section class="modern-section">
+    <h2 class="collapsible text-3xl md:text-4xl font-black mb-8 flex items-center">FORMATO OBRIGATÓRIO DO NOME</h2>
+    <div class="content space-y-6">
+      <div class="glass rounded-2xl p-8">
+        <code class="block text-lg md:text-xl font-mono text-yellow-300/90">[TEMPERATURA] Nome (CidadeUF) [TAGS] Descrição [PRIORIDADE]</code>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">★ João Silva (SãoPauloSP) #LA #REC 18k/mês
+        <p class="mt-6">➵ Client VIP, João Silva de SP/SP, Locação Anual, Recorrente, 18k/mês</p></div>
+
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">🔥 Juliano Scherer (Capão da CanoaRS) #V #1D #MOB 280k 1️⃣<p class="mt-6">➵ Client Quente, Juliano Scherer de Capão da Canoa/RS, Venda 1D Mobiliado com Box, 280k, Prioridade Alta</p></div>
+        
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">🌡️ Maria Costa (NiteróiRJ) #LT #3D Até 800 2️⃣<p class="mt-6">➵ Client Morno, Maria Costa de Niterói/RJ, Locação de Temporada, 3D, Até 800/dia, Prioridade Média</p></div>
+        
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">💤 Pedro Oliveira (CuritibaPR) #C 3️⃣<p class="mt-6">➵ Client Frio, Pedro Oliveira de Curitiba/PR, Compra, Baixa Prioridade (ñ interage)</p></div>
+        
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">🔥 Ana Mendes (FlorianópolisSC) #C #3D #MD 1.5kk🚨<p class="mt-6">➵ Cliente Quente, Ana Mendes de Floripa/SC, Compra, 3D Mobiliado e Decorado até 1.5kk, Urgente</p></div>
+        
+        <div class="glass rounded-xl p-4 hover:border-yellow-500/30 transition-all">✅ Carla Souza (BeloHorizonteMG) #V Vendido 2.8M (Sunset 1001)<p class="mt-6">➵ Cliente Fechado, Carla Souza de BH/MG, Vendedora, Vendido por 2.8M (Sunset 1001)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. STATUS / TEMPERATURA -->
+  <section class="modern-section">
+    <h2 class="collapsible text-3xl md:text-4xl font-black mb-8">STATUS / TEMPERATURA</h2>
+    <div class="content grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
+      <div class="modern-card text-center group copyable-card" data-copy="★">
+        <div class="emoji-glow text-5xl mb-3">★</div>
+        <div class="font-bold text-sm leading-tight">Cliente<br>VIP</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="🔥">
+        <div class="emoji-glow text-5xl mb-3">🔥</div>
+        <div class="font-bold text-sm leading-tight">Lead<br>Quente</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="🌡️">
+        <div class="emoji-glow text-5xl mb-3">🌡️</div>
+        <div class="font-bold text-sm leading-tight">Lead<br>Morno</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="💤">
+        <div class="emoji-glow text-5xl mb-3">💤</div>
+        <div class="font-bold text-sm leading-tight">Lead<br>Frio</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="✅">
+        <div class="emoji-glow text-5xl mb-3">✅</div>
+        <div class="font-bold text-sm leading-tight">Fechado</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="👤">
+        <div class="emoji-glow text-5xl mb-3">👤</div>
+        <div class="font-bold text-sm leading-tight">Prospect</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="🤝">
+        <div class="emoji-glow text-5xl mb-3">🤝</div>
+        <div class="font-bold text-sm leading-tight">Parceiro</div>
+      </div>
+      <div class="modern-card text-center group copyable-card" data-copy="⚠️">
+        <div class="emoji-glow text-5xl mb-3">⚠️</div>
+        <div class="font-bold text-sm leading-tight">Problemático</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TAGS + PRIORIDADE -->
+  <section class="modern-section">
+    <h2 class="collapsible text-3xl md:text-4xl font-black mb-8">TAGS DE TIPO + PRIORIDADE</h2>
+    <div class="content space-y-12">
+
+      <!-- Tags de Tipo -->
+      <div>
+        <h3 class="text-2xl font-bold gold-gradient mb-6 text-center">Tags de Tipo</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 p-8">
+          <div class="modern-card text-center copyable-card" data-copy="#C"><div class="emoji-glow text-4xl mb-2">#C</div><div class="text-xs font-semibold">Compra</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#V"><div class="emoji-glow text-4xl mb-2">#V</div><div class="text-xs font-semibold">Venda</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#LT"><div class="emoji-glow text-3xl mb-2">#LT</div><div class="text-xs font-semibold">Locação<br>Temporada</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#LA"><div class="emoji-glow text-3xl mb-2">#LA</div><div class="text-xs font-semibold">Locação<br>Anual</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#VI"><div class="emoji-glow text-3xl mb-2">#VI</div><div class="text-xs font-semibold">Vistoria</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="#R"><div class="emoji-glow text-4xl mb-2">#R</div><div class="text-xs font-semibold">Reforma</div></div>
+        </div>
+      </div>
+
+      <!-- Prioridade -->
+      <div>
+        <h3 class="text-2xl font-bold gold-gradient mb-6 text-center">Prioridade</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
+          <div class="modern-card text-center copyable-card" data-copy="🚨"><div class="emoji-glow text-6xl mb-2 text-red-400">🚨</div><div class="text-lg font-bold">Urgente</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="1️⃣"><div class="emoji-glow text-6xl mb-2">1️⃣</div><div class="text-lg font-bold">Alta</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="2️⃣"><div class="emoji-glow text-6xl mb-2">2️⃣</div><div class="text-lg font-bold">Média</div></div>
+          <div class="modern-card text-center copyable-card" data-copy="3️⃣"><div class="emoji-glow text-6xl mb-2">3️⃣</div><div class="text-lg font-bold">Baixa</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. ATALHOS -->
+  <section class="modern-section">
+    <h2 class="collapsible text-3xl md:text-4xl font-black mb-8">ATALHOS DE TECLADO</h2>
+    <div class="content overflow-x-auto">
+      <table class="modern-table w-full">
+        <thead>
+          <tr class="text-left">
+            <th>Emoji</th>
+            <th>Função</th>
+            <th>iPhone (;;)</th>
+            <th>Android (.)</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="copyable-row" data-copy="★" style="cursor: pointer;"><td class="text-4xl">★</td><td class="font-semibold">Cliente VIP</td><td class="font-mono text-yellow-300">;;vip</td><td class="font-mono text-yellow-300">.vip</td><td><button class="modern-btn copy-btn" data-text=";;vip ou .vip → ★" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="🔥" style="cursor: pointer;"><td class="text-4xl">🔥</td><td class="font-semibold">Lead Quente</td><td class="font-mono text-yellow-300">;;hot</td><td class="font-mono text-yellow-300">.hot</td><td><button class="modern-btn copy-btn" data-text=";;hot ou .hot → 🔥" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="🌡️" style="cursor: pointer;"><td class="text-4xl">🌡️</td><td class="font-semibold">Lead Morno</td><td class="font-mono text-yellow-300">;;mor</td><td class="font-mono text-yellow-300">.mor</td><td><button class="modern-btn copy-btn" data-text=";;mor ou .mor → 🌡️" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="💤" style="cursor: pointer;"><td class="text-4xl">💤</td><td class="font-semibold">Lead Frio</td><td class="font-mono text-yellow-300">;;cold</td><td class="font-mono text-yellow-300">.cold</td><td><button class="modern-btn copy-btn" data-text=";;cold ou .cold → 💤" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="✅" style="cursor: pointer;"><td class="text-4xl">✅</td><td class="font-semibold">Fechado</td><td class="font-mono text-yellow-300">;;ok</td><td class="font-mono text-yellow-300">.ok</td><td><button class="modern-btn copy-btn" data-text=";;ok ou .ok → ✅" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="👤" style="cursor: pointer;"><td class="text-4xl">👤</td><td class="font-semibold">Prospect</td><td class="font-mono text-yellow-300">;;pros</td><td class="font-mono text-yellow-300">.pros</td><td><button class="modern-btn copy-btn" data-text=";;pros ou .pros → 👤" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="🤝" style="cursor: pointer;"><td class="text-4xl">🤝</td><td class="font-semibold">Parceiro</td><td class="font-mono text-yellow-300">;;parc</td><td class="font-mono text-yellow-300">.parc</td><td><button class="modern-btn copy-btn" data-text=";;parc ou .parc → 🤝" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="⚠️" style="cursor: pointer;"><td class="text-4xl">⚠️</td><td class="font-semibold">Problemático</td><td class="font-mono text-yellow-300">;;alert</td><td class="font-mono text-yellow-300">.alert</td><td><button class="modern-btn copy-btn" data-text=";;alert ou .alert → ⚠️" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#C" style="cursor: pointer;"><td class="text-4xl">#C</td><td class="font-semibold">Compra</td><td class="font-mono text-yellow-300">;;c</td><td class="font-mono text-yellow-300">..c</td><td><button class="modern-btn copy-btn" data-text=";;c ou ..c → #C" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#V" style="cursor: pointer;"><td class="text-4xl">#V</td><td class="font-semibold">Venda</td><td class="font-mono text-yellow-300">;;v</td><td class="font-mono text-yellow-300">..v</td><td><button class="modern-btn copy-btn" data-text=";;v ou ..v → #V" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#LT" style="cursor: pointer;"><td class="text-4xl">#LT</td><td class="font-semibold">Locação Temporada</td><td class="font-mono text-yellow-300">;;lt</td><td class="font-mono text-yellow-300">..lt</td><td><button class="modern-btn copy-btn" data-text=";;lt ou ..lt → #LT" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#LA" style="cursor: pointer;"><td class="text-4xl">#LA</td><td class="font-semibold">Locação Anual</td><td class="font-mono text-yellow-300">;;la</td><td class="font-mono text-yellow-300">..la</td><td><button class="modern-btn copy-btn" data-text=";;la ou ..la → #LA" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#VI" style="cursor: pointer;"><td class="text-4xl">#VI</td><td class="font-semibold">Vistoria</td><td class="font-mono text-yellow-300">;;vi</td><td class="font-mono text-yellow-300">..vi</td><td><button class="modern-btn copy-btn" data-text=";;vi ou ..vi → #VI" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#R" style="cursor: pointer;"><td class="text-4xl">#R</td><td class="font-semibold">Reforma</td><td class="font-mono text-yellow-300">;;r</td><td class="font-mono text-yellow-300">..r</td><td><button class="modern-btn copy-btn" data-text=";;r ou ..r → #R" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="#A" style="cursor: pointer;"><td class="text-4xl">#A</td><td class="font-semibold">Avaliação</td><td class="font-mono text-yellow-300">;;a</td><td class="font-mono text-yellow-300">..a</td><td><button class="modern-btn copy-btn" data-text=";;a ou ..a → #A" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="🚨" style="cursor: pointer;"><td class="text-4xl">🚨</td><td class="font-semibold">Urgente</td><td class="font-mono text-yellow-300">;;u</td><td class="font-mono text-yellow-300">.u</td><td><button class="modern-btn copy-btn" data-text=";;u ou .u → 🚨" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="1️⃣" style="cursor: pointer;"><td class="text-4xl">1️⃣</td><td class="font-semibold">Prioridade Alta</td><td class="font-mono text-yellow-300">;;1</td><td class="font-mono text-yellow-300">.1</td><td><button class="modern-btn copy-btn" data-text=";;1 ou .1 → 1️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="2️⃣" style="cursor: pointer;"><td class="text-4xl">2️⃣</td><td class="font-semibold">Prioridade Média</td><td class="font-mono text-yellow-300">;;2</td><td class="font-mono text-yellow-300">.2</td><td><button class="modern-btn copy-btn" data-text=";;2 ou .2 → 2️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
+          <tr class="copyable-row" data-copy="3️⃣" style="cursor: pointer;"><td class="text-4xl">3️⃣</td><td class="font-semibold">Prioridade Baixa</td><td class="font-mono text-yellow-300">;;3</td><td class="font-mono text-yellow-300">.3</td><td><button class="modern-btn copy-btn" data-text=";;3 ou .3 → 3️⃣" onclick="event.stopPropagation();">Copiar</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="text-center py-12 opacity-60 text-sm">
+    <p>Método POWER | Luciano Scheffel, Corretor © Novembro 2025</p>
+    <p class="mt-2">Design moderno • Segmentação avançada • CRM definitivo, gratuíto e minimalista</p>
+    <p class="mt-2">Faça de seu Smartphone sua ferramenta mais poderosa de trabalho!</p>
+  </footer>
+</div>
+
+<script>
+  // Aguarda o DOM carregar
+  window.addEventListener('load', () => {
+    
+    // Função de copiar
+    function copyText(text, element) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalBg = element.style.background;
+        element.style.background = 'rgba(34, 197, 94, 0.3)';
+        element.style.transition = 'background 0.3s';
+        
+        const notification = document.createElement('div');
+        notification.textContent = `✓ ${text} copiado!`;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: rgba(34, 197, 94, 0.9);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-weight: bold;
+          z-index: 9999;
+          animation: slideIn 0.3s ease-out;
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          element.style.background = originalBg;
+          notification.style.animation = 'slideOut 0.3s ease-out';
+          setTimeout(() => notification.remove(), 300);
+        }, 2000);
+      });
+    }
+    
+    // FORÇA event listeners em TODOS os cards
+    setTimeout(() => {
+      const allCards = document.querySelectorAll('.copyable-card');
+      allCards.forEach((card) => {
+        card.onclick = function() {
+          const text = this.getAttribute('data-copy');
+          copyText(text, this);
+        };
+      });
+    }, 500);
+    
+    // Linhas da tabela
+    document.querySelectorAll('.copyable-row').forEach(row => {
+      row.addEventListener('click', function(e) {
+        if (!e.target.closest('.copy-btn')) {
+          copyText(this.getAttribute('data-copy'), this);
+        }
+      });
+    });
+    
+    // Collapsible sections
+    document.querySelectorAll('.collapsible').forEach(h => {
+      h.addEventListener('click', () => {
+        h.classList.toggle('open');
+        h.nextElementSibling.classList.toggle('hidden');
+      });
+    });
+
+    // Botões "Copiar" da tabela
+    document.querySelectorAll('.copy-btn').forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigator.clipboard.writeText(b.dataset.text);
+        const orig = b.textContent;
+        b.textContent = '✓ Copiado';
+        b.style.background = 'rgba(34, 197, 94, 0.2)';
+        setTimeout(() => {
+          b.textContent = orig;
+          b.style.background = '';
+        }, 2000);
+      });
+    });
+    
+    // Animações CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(400px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(400px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
+</body>
+</html>
